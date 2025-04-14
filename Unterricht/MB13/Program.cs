@@ -10,14 +10,14 @@ var singlyLinkedList = new SinglyLinkedList();
 // Aufgabe 1
 singlyLinkedList.Add("aaa");
 singlyLinkedList.Add("bbb");
-singlyLinkedList.Add(5);
+singlyLinkedList.Add("ccc");
 var cnt1 = singlyLinkedList.Count;
 
 // Aufgabe 2
 var c = singlyLinkedList.Contains("bb");
 
 // Aufgabe 3
-singlyLinkedList.Remove("bbb");
+singlyLinkedList.Remove("ccc");
 
 // Aufgabe 4
 var o = singlyLinkedList.FindByIndex(1);
