@@ -1,0 +1,34 @@
+﻿namespace MB15.SortComparison.SortingAlgorithms;
+
+public class BubbleSort : SortAlgorithm
+{
+    public override string Name => "Bubblesort";
+
+    public override void Sort(IList<int> arrayToSort)
+    {
+        var swapped = true;
+        var length = arrayToSort.Count;
+
+        while (swapped)
+        {
+            swapped = false;
+            for (var i = 0; i < length - 1; i++)
+            {
+                if (arrayToSort[i] > arrayToSort[i + 1])
+                {
+                    SwapItems(arrayToSort, i, i + 1);
+                    swapped = true;
+                }
+            }
+
+            length--;
+        }
+    }
+
+    private void SwapItems(IList<int> arrayToSort, int index1, int index2)
+    {
+        var tmp = arrayToSort[index1];
+        arrayToSort[index1] = arrayToSort[index2];
+        arrayToSort[index2] = tmp;
+    }
+}
