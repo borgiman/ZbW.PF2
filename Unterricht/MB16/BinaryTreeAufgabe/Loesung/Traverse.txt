@@ -1,0 +1,35 @@
+private string Traverse()
+{
+    var resultat = "Traversiere im Modus " + TraverseMode + Environment.NewLine;
+    Traverse(root, ref resultat);
+    return resultat;
+}
+
+private void Traverse(Node<T> node, ref string resultat)
+{
+    if (node == null)
+    {
+        return;
+    }
+
+    var reverse = TraverseMode == TraverseMode.ReverseInOrder;
+
+    if (TraverseMode == TraverseMode.PreOrder)
+    {
+        resultat += node.Item + Environment.NewLine;
+    }
+
+    Traverse(reverse ? node.Right : node.Left, ref resultat);
+
+    if (TraverseMode == TraverseMode.InOrder || TraverseMode == TraverseMode.ReverseInOrder)
+    {
+        resultat += node.Item + Environment.NewLine;
+    }
+
+    Traverse(reverse ? node.Left : node.Right, ref resultat);
+
+    if (TraverseMode == TraverseMode.PostOrder)
+    {
+        resultat += node.Item + Environment.NewLine;
+    }
+}
